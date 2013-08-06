@@ -1,6 +1,6 @@
 (function(_) {
     _.extend(_.prototype, {
-        once: function(func) {
+        onceAndAgain: function(func) {
             var ran = false,
                 memo;
                 
