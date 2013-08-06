@@ -1,14 +1,15 @@
 (function(_) {
-    _.extend(_.prototype, {
+    _.mixin({
         onceAndAgain: function(func) {
             var ran = false,
-                memo;
+                memo,
+                closureFunc = func;
                 
             return function(forceReset) {
                 if(forceReset) ran = false;
                 if (ran) return memo;
                 ran = true;
-                memo = func.apply(this, arguments);
+                memo = closureFunc.apply(this, arguments);
                 func = null;
                 return memo;
             };
